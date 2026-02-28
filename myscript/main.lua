@@ -1,7 +1,7 @@
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 
 local Window = Rayfield:CreateWindow({
-   Name = "DongHubX | Mobile Edition",
+   Name = "DongHubX | DongTatKaiMarHg",
    LoadingTitle = "Đang tải DongHubX...",
    LoadingSubtitle = "by Dong Scripter",
    ConfigurationSaving = {
@@ -16,7 +16,7 @@ local MainTab = Window:CreateTab("Auto Farm", 4483362458)
 
 _G.AutoFarm = false
 MainTab:CreateToggle({
-   Name = "Bật Auto Farm Level",
+   Name = "Auto Farm (chưa hoàn thiện)",
    CurrentValue = false,
    Flag = "AutoFarmToggle", 
    Callback = function(Value)
@@ -66,7 +66,8 @@ MiscTab:CreateButton({
 
 Rayfield:Notify({
    Title = "DongHubX Đã Bật!",
-   Content = "Chúc bạn trải nghiệm vui vẻ trên Delta",
+   Content = "Chúc bạn trải nghiệm vui vẻ trên script Dongxanhdeptrai",
    Duration = 5,
    Image = 4483345998,
+
 })
