@@ -71,3 +71,38 @@ Rayfield:Notify({
    Image = 4483345998,
 
 })
+
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+
+local function ApplyESP(player)
+    local function CreateHighlight(character)
+        task.wait(0.1)
+        if character:FindFirstChild("ESP_Highlight") then
+            character.ESP_Highlight:Destroy()
+        end
+
+        local highlight = Instance.new("Highlight")
+        highlight.Name = "ESP_Highlight"
+        highlight.Parent = character
+        highlight.FillColor = Color3.fromRGB(255, 0, 0)
+        highlight.OutlineColor = Color3.fromRGB(255, 255, 255)
+        highlight.FillTransparency = 0.5
+        highlight.OutlineTransparency = 0
+        highlight.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
+    end
+
+    if player.Character then
+        CreateHighlight(player.Character)
+    end
+    player.CharacterAdded:Connect(CreateHighlight)
+end
+
+for _, player in pairs(Players:GetPlayers()) do
+    if player ~= LocalPlayer then
+        ApplyESP(player)
+    end
+end
+
+Players.PlayerAdded:Connect(ApplyESP)
+
